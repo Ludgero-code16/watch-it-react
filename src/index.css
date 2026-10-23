@@ -1,0 +1,17 @@
+
+/* I import the two fonts required by the brief. */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Teko:wght@400;500;600&display=swap");
+
+/* I remove the browser's default page spacing. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* I allow the React application to fill
+   the entire browser width. */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}

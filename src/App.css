@@ -1,0 +1,393 @@
+
+/* ==========================================
+   TASK 2 - WATCH.IT RESPONSIVE WEBSITE
+   ========================================== */
+
+/* I use variables to keep the brand colours
+   and spacing consistent throughout the page. */
+
+:root {
+  --dark: #070410;
+  --purple: #231651;
+  --teal: #4dccbd;
+  --yellow: #eef36a;
+  --white: #ffffff;
+
+  /* Mobile spacing */
+  --small-spacing: 16px;
+  --large-spacing: 16px;
+}
+
+/* I reset the default spacing so the
+   website fits correctly on all screens. */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  background-color: var(--dark);
+  color: var(--dark);
+  font-family: "Lato", sans-serif;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+/* Flexbox keeps the logo, navigation links
+   and search button aligned horizontally. */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--small-spacing);
+
+  width: 100%;
+  padding: var(--small-spacing);
+
+  background-color: var(--purple);
+  border-bottom: 4px solid var(--teal);
+  color: var(--white);
+}
+
+/* I use Teko for the watch.it logo. */
+
+.site-logo {
+  margin: 0;
+  font-family: "Teko", sans-serif;
+  font-size: 2em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Navigation is hidden on mobile screens. */
+
+.site-nav {
+  display: none;
+  align-items: center;
+  gap: var(--large-spacing);
+}
+
+.site-nav a {
+  color: var(--white);
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: var(--yellow);
+}
+
+/* Search button uses the teal brand colour. */
+
+.search-button {
+  flex-shrink: 0;
+
+  padding: var(--small-spacing);
+  border: none;
+  border-radius: 16px;
+
+  background-color: var(--teal);
+  color: var(--dark);
+
+  font-family: "Teko", sans-serif;
+  font-size: 2em;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: var(--yellow);
+}
+
+/* ==========================================
+   MAIN MOVIE CONTAINER
+   ========================================== */
+
+/* I use CSS Grid to arrange the movies.
+   On mobile there is only one column. */
+
+.movie-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--large-spacing);
+
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+  padding: var(--large-spacing);
+}
+
+/* ==========================================
+   MOVIE CARDS
+   ========================================== */
+
+/* Each card uses Flexbox to arrange the
+   poster, description and watch button. */
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  background-color: var(--white);
+  color: var(--dark);
+
+  box-shadow: 8px 8px 0 var(--purple);
+  overflow: hidden;
+}
+
+/* The poster fills the card width on
+   mobile and tablet without distortion. */
+
+.movie-poster {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* I use Flexbox so the watch button stays
+   underneath the movie description. */
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  gap: var(--small-spacing);
+  padding: var(--small-spacing);
+
+  min-width: 0;
+}
+
+/* The brief requires movie card text
+   to use a font size of 1.5em. */
+
+.movie-text {
+  font-size: 1.5em;
+}
+
+/* I use Teko for movie headings. */
+
+.movie-text h2 {
+  margin: 0 0 8px;
+
+  font-family: "Teko", sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+/* I use Lato for movie descriptions. */
+
+.movie-text p {
+  margin: 0;
+
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  line-height: 1.35;
+
+  overflow-wrap: break-word;
+}
+
+/* ==========================================
+   WATCH NOW BUTTON
+   ========================================== */
+
+/* The watch button uses the yellow brand
+   colour and the required 2em font size. */
+
+.watch-button {
+  display: block;
+
+  width: 100%;
+  margin-top: auto;
+  padding: var(--small-spacing);
+
+  border: none;
+  border-radius: 16px;
+
+  background-color: var(--yellow);
+  color: var(--dark);
+
+  font-family: "Teko", sans-serif;
+  font-size: 2em;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.watch-button:hover {
+  background-color: var(--teal);
+}
+
+/* I make focused links and buttons
+   easier to see when using a keyboard. */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   TABLET LAYOUT - 720px TO 1023px
+   ========================================== */
+
+@media (min-width: 720px) {
+
+  /* Tablet large spacing is 32px. */
+
+  :root {
+    --large-spacing: 32px;
+  }
+
+  /* Increase the logo size on tablet. */
+
+  .site-logo {
+    font-size: 3em;
+  }
+
+  /* Show the navigation links on tablet. */
+
+  .site-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Display two movie cards per row. */
+
+  .movie-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==========================================
+   DESKTOP LAYOUT - 1024px AND ABOVE
+   ========================================== */
+
+@media (min-width: 1024px) {
+
+  /* Desktop large spacing is 48px. */
+
+  :root {
+    --large-spacing: 48px;
+  }
+
+  /* Add the required spacing between links. */
+
+  .site-nav {
+    gap: var(--large-spacing);
+  }
+
+  /* Keep the desktop grid in two columns. */
+
+  .movie-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* The first movie spans both columns
+     to create the featured movie card. */
+
+  .movie-card.featured {
+    grid-column: 1 / -1;
+  }
+
+  /* I display the complete Roger Rabbit
+     poster without cropping or stretching it.
+
+     Because the original poster is square,
+     there will be some purple space on
+     either side of the wide image area. */
+
+  .movie-card.featured .movie-poster {
+    display: block;
+
+    width: 100%;
+    height: 350px;
+    aspect-ratio: auto;
+
+    object-fit: contain;
+    object-position: center;
+
+    background-color: var(--purple);
+  }
+
+  /* Featured movie information appears
+     horizontally below the poster. */
+
+  .movie-card.featured .movie-details {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  /* The description takes up more space
+     than the WATCH NOW button. */
+
+  .movie-card.featured .movie-text {
+    flex: 2;
+    min-width: 0;
+  }
+
+  /* Position the featured watch button
+     on the right of the description. */
+
+  .movie-card.featured .watch-button {
+    flex: 1;
+    width: auto;
+
+    margin-top: 0;
+    align-self: stretch;
+  }
+
+  /* The fourth, fifth and sixth movie cards
+     span both columns on desktop. */
+
+  .movie-card:nth-child(n + 4) {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+
+  /* Their posters appear on the left
+     side of each horizontal movie card. */
+
+  .movie-card:nth-child(n + 4) .movie-poster {
+    width: 50%;
+    height: auto;
+    aspect-ratio: auto;
+
+    align-self: stretch;
+    object-fit: cover;
+  }
+
+  /* Their descriptions and buttons appear
+     on the right side of each card. */
+
+  .movie-card:nth-child(n + 4) .movie-details {
+    width: 50%;
+    flex: 1;
+  }
+}
